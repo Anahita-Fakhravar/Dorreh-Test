@@ -16,7 +16,6 @@ export const UserListStyles = {
         borderRadius: 10,
         width:responsiveWidth(96),
         alignSelf:'center',
-        height:responsiveHeight(20),
         marginVertical: responsiveHeight(1),
         paddingHorizontal: responsiveScreenWidth(3),
         paddingVertical: responsiveHeight(1),

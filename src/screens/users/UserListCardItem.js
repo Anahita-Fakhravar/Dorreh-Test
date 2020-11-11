@@ -1,7 +1,7 @@
 //Design user list card item 
 
 import React from 'react';
-import { View, Text, Animated } from 'react-native';
+import { View, Text, Animated ,Platform} from 'react-native';
 import { UserListStyles } from './UserListStyles';
 import { Strings } from './../../assets/Strings';
 import { Colors } from '../../assets/Colors';
@@ -10,15 +10,16 @@ import { responsiveHeight } from 'react-native-responsive-dimensions';
 
 export const UserListCardItem = ({ item, index, y }) => {
 
-    const position = Animated.subtract(index * responsiveHeight(20), y);
-    const isDisappearing = -responsiveHeight(20);
+    const cardHeight= Platform ==='ios' ? responsiveHeight(16):responsiveHeight(20)
+    const position = Animated.subtract(index * cardHeight, y);
+    const isDisappearing = -cardHeight;
     const isTop = 0;
-    const isBottom = responsiveHeight(100) - responsiveHeight(20);
+    const isBottom = responsiveHeight(100) - cardHeight;
     const isAppearing = responsiveHeight(100);
 
     const translateY = Animated.add(y, y.interpolate({
-        inputRange: [0, index * responsiveHeight(20)],
-        outputRange: [0, -index * responsiveHeight(20)],
+        inputRange: [0, index * cardHeight],
+        outputRange: [0, -index * cardHeight],
         extrapolateRight: "clamp"
     }))
 
@@ -44,7 +45,7 @@ export const UserListCardItem = ({ item, index, y }) => {
         <Animated.View style={[UserListStyles.itemContainer,
         {
             backgroundColor: Colors.listColorArray[index % Colors.listColorArray.length],
-            transform: [{ translateY }, { scale }]
+            transform: [{ translateY }, { scale }], height:cardHeight,
         }]}>
 
             {_rowUi(Strings.fullName, item.name)}

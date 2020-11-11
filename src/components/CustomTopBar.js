@@ -1,7 +1,7 @@
 //Design custom topbar 
 
 import React from 'react';
-import { View, Text, StyleSheet} from 'react-native';
+import { View, Text, StyleSheet,Platform} from 'react-native';
 import {Colors} from '../assets/Colors';
 import { responsiveHeight} from 'react-native-responsive-dimensions';
 export const CustomTopBar = ({ title }) => {
@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
 
     topBarView:{
         backgroundColor:Colors.darkTheme,
-        height: responsiveHeight(10) ,
+        height: Platform === 'ios' ? responsiveHeight(5):responsiveHeight(10) ,
         alignItems:'center',
         justifyContent:'center'
     },
