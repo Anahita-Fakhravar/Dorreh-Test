@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
 
     topBarView:{
         backgroundColor:Colors.darkTheme,
-        height: Platform === 'ios' ? responsiveHeight(5):responsiveHeight(10) ,
+        height: Platform.OS=== 'ios' ? responsiveHeight(5):responsiveHeight(10) ,
         alignItems:'center',
         justifyContent:'center'
     },
