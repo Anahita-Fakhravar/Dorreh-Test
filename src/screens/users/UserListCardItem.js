@@ -10,7 +10,7 @@ import { responsiveHeight } from 'react-native-responsive-dimensions';
 
 export const UserListCardItem = ({ item, index, y }) => {
 
-    const cardHeight= Platform.OS ==='ios' ? responsiveHeight(16):responsiveHeight(20)
+    const cardHeight= Platform.OS ==='ios' ? responsiveHeight(18):responsiveHeight(20)
     const position = Animated.subtract(index * cardHeight, y);
     const isDisappearing = -cardHeight;
     const isTop = 0;
